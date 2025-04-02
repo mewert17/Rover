@@ -1,0 +1,10 @@
+{
+  "package_name": "realsense2_camera_msgs",
+  "non_idl_tuples": [
+    "/home/matt/Desktop/luna/src/realsense-ros/realsense2_camera_msgs:msg/IMUInfo.msg",
+    "/home/matt/Desktop/luna/src/realsense-ros/realsense2_camera_msgs:msg/Extrinsics.msg",
+    "/home/matt/Desktop/luna/src/realsense-ros/realsense2_camera_msgs:msg/Metadata.msg",
+    "/home/matt/Desktop/luna/src/realsense-ros/realsense2_camera_msgs:msg/RGBD.msg",
+    "/home/matt/Desktop/luna/src/realsense-ros/realsense2_camera_msgs:srv/DeviceInfo.srv"
+  ]
+}
