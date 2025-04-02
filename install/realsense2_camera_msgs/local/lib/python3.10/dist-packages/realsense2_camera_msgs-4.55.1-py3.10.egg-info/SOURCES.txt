@@ -1,6 +1,1 @@
-setup.py
-realsense2_camera_msgs/__init__.py
-realsense2_camera_msgs.egg-info/PKG-INFO
-realsense2_camera_msgs.egg-info/SOURCES.txt
-realsense2_camera_msgs.egg-info/dependency_links.txt
-realsense2_camera_msgs.egg-info/top_level.txt
+/home/matt/Desktop/luna/build/realsense2_camera_msgs/ament_cmake_python/realsense2_camera_msgs/realsense2_camera_msgs.egg-info/SOURCES.txt

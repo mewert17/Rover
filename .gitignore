@@ -1,0 +1,9 @@
+# Ignore log files
+*.log
+
+# Ignore build directories
+build/
+install/
+
+# Ignore ROS2-related files
+.ros/
