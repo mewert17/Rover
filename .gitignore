@@ -4,6 +4,7 @@
 # Ignore build directories
 build/
 install/
+bags/ 
 
 # Ignore ROS2-related files
 .ros/
