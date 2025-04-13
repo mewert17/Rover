@@ -58,14 +58,14 @@ class PointCloudFilteringNode(Node):
         transformed_points = self.transform_pointcloud(downsampled_points, msg.header.frame_id)
 
         # Pre-filter: remove points above a certain height and points too far away
-        filtered_points = self.filter_high_points(transformed_points, max_height=0.4)
+        filtered_points = self.filter_high_points(transformed_points, max_height=0.2)
         filtered_points = self.filter_far_points(filtered_points, max_depth=3.0)
 
         # Segment ground from non-ground points using RANSAC
         ground_points, non_ground_points = self.segment_ground(filtered_points)
 
         # Further segment vertical wall planes from the non-ground points using RANSAC.
-        wall_points, non_wall_points = self.segment_walls(non_ground_points, normal_threshold=0.3, distance_threshold=0.065)
+        wall_points, non_wall_points = self.segment_walls(non_ground_points, normal_threshold=0.3, distance_threshold=0.08)
 
         # Apply Euclidean clustering on non-wall points with relaxed cluster size filtering.
         # Clusters with at least 30 points and no more than 1000 points are retained.
@@ -211,7 +211,7 @@ class PointCloudFilteringNode(Node):
         ec = cloud.make_EuclideanClusterExtraction()
         ec.set_ClusterTolerance(0.1)  # Adjust based on your resolution.
         ec.set_MinClusterSize(15)     # Lower minimum cluster size.
-        ec.set_MaxClusterSize(500)   # Increase maximum cluster size.
+        ec.set_MaxClusterSize(250)   # Increase maximum cluster size.
         ec.set_SearchMethod(tree)
 
         # Extract clusters (each cluster is a list of point indices).
