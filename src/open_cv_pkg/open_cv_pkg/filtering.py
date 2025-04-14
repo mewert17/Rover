@@ -23,8 +23,8 @@ class PointCloudFilteringNode(Node):
         self.declare_parameter("wall_distance_threshold", 0.065)
         self.declare_parameter("wall_normal_threshold", 0.3)
         self.declare_parameter("cluster_tolerance", 0.1)
-        self.declare_parameter("min_cluster_size", 20)
-        self.declare_parameter("max_cluster_size", 150)
+        self.declare_parameter("min_cluster_size", 15)
+        self.declare_parameter("max_cluster_size", 95)
 
         self.leaf_size = self.get_parameter("leaf_size").value
         self.max_height = self.get_parameter("max_height").value
