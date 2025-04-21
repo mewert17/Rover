@@ -1,0 +1,8 @@
+image: /home/matt/Desktop/luna/src/astro_launch/maps/arena_map_2_5x7.png  # or a relative path like "../maps/arena_map.pgm"
+resolution: 0.05                # Each pixel represents 0.05 meters in the real world.
+origin: [0.0, 0.0, 0.0]         # The [x, y] position and yaw (rotation) of the map's origin.
+negate: 0                     # Indicates whether to invert the pixel values. 0 = no inversion.
+occupied_thresh: 0.65           # Threshold above which a pixel is considered an obstacle.
+free_thresh: 0.196              # Threshold below which a pixel is considered free space.
+# the png above is just a white pixel
+

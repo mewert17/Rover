@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<robot name="simple_rover">
+
+  <!--─── materials ─────────────────────────────────────────────────────-->
+  <material name="red">
+    <color rgba="1.0 0.0 0.0 0.8"/>
+  </material>
+  <material name="blue">
+    <color rgba="0.0 0.0 1.0 0.9"/>
+  </material>
+
+  <!--─── this is the frame the UWB/localization node publishes ────-->
+  <link name="tag_link"/>
+
+  <!--
+    move from tag_link → base_link by the *negative* of your sensor offset.
+    If your sensor sits at (x, y, z) in the robot‐center,
+    then base_link must be shifted by (-x, -y, -z).
+  -->
+  <joint name="tag_to_base" type="fixed">
+    <parent link="tag_link"/>
+    <child  link="base_link"/>
+    <origin xyz="-0.45 -0.35 -0.5" rpy="0 0 0"/>
+  </joint>
+
+  <!--─── your main chassis sits on z=0 with half‑height 0.25 ────-->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <!-- 1.5 m long × 0.75 m wide × 0.5 m tall -->
+        <box size="1.5 0.75 0.5"/>
+      </geometry>
+      <!-- lift by half the height so bottom is at z=0 -->
+      <origin xyz="0 0 0.25" rpy="0 0 0"/>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <!--─── camera is offset 0.7 m forward of base_link ────-->
+  <link name="camera_link">
+    <visual>
+      <geometry>
+        <!-- small box as placeholder -->
+        <box size="0.03 0.22 0.19"/>
+      </geometry>
+      <!-- this centers the camera visual on its own link frame -->
+      <origin xyz="0 0 0.17" rpy="0 0 0"/>
+      <material name="blue"/>
+    </visual>
+  </link>
+
+  <joint name="camera_joint" type="fixed">
+    <parent link="base_link"/>
+    <child  link="camera_link"/>
+    <origin xyz="0.4 0 0.2" rpy="0 0 0"/>
+  </joint>
+
+</robot>
