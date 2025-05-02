@@ -11,11 +11,6 @@ A ROS 2-based autonomy stack for the 2025 NASA Lunabotics Challenge, featuring d
    - [Prerequisites](#prerequisites)  
    - [Installation](#installation)  
    - [Launching Nodes](#launching-nodes)  
-5. [Directory Structure](#directory-structure)  
-6. [Usage Examples](#usage-examples)  
-7. [Contributing](#contributing)  
-8. [License](#license)  
-9. [Contact & Résumé Link](#contact--résumé-link)  
 
 ## Project Overview
 
@@ -43,3 +38,28 @@ Our rover autonomously detects boulders and craters using an Intel RealSense D45
   - `pcl` via `python-pcl` or ROS wrappers
   - `transforms3d`
 - **Build Tools**: `colcon`, `ament_cmake`, `ament_python`
+## ⚙️ Getting Started
+
+### Prerequisites 
+## DIFFERENT FOR EACH HARDWARE YOU USE, PLEASE NEVER USE A PI 4
+
+1. Install ROS 2 Humble following the [official guide](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).  
+2. Install Intel RealSense SDK and ROS wrapper:  
+   ```bash
+   # SDK
+   git clone https://github.com/IntelRealSense/librealsense.git && \
+   cd librealsense && mkdir build && cd build && cmake .. && make -j4 && sudo make install
+
+   # ROS wrapper (ros2-development branch)
+   cd ~/ros2_ws/src
+   git clone --branch ros2-development https://github.com/IntelRealSense/realsense-ros.git
+   cd ~/ros2_ws && colcon build
+3. pip install numpy scipy opencv-python transforms3d pyrealsense2
+4. Launching Nodes
+
+   cd ~/Desktop/luna
+   colcon build --symlink-install
+   source install/setup.bash
+
+   ros2 launch astro_launch launch_all_nodes.py
+
